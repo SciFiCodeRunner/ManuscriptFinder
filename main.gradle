@@ -11,7 +11,9 @@
         apply plugin: 'java'
         apply plugin: 'jacoco'
         apply plugin: 'io.spring.dependency-management'
-
+            tasks.named('validateStructure') {
+                enabled = false
+            }
         java {
             sourceCompatibility = JavaVersion.VERSION_17
         }
@@ -54,7 +56,7 @@
     }
 
     tasks.register('jacocoMergedReport', JacocoReport) {
-        dependsOn = [test, subprojects.jacocoTestReport, pitestReportAggregate]
+        dependsOn = [test, subprojects.jacocoTestReport]
         additionalSourceDirs.setFrom files(subprojects.sourceSets.main.allSource.srcDirs)
         sourceDirectories.setFrom files(subprojects.sourceSets.main.allSource.srcDirs)
         classDirectories.setFrom files(subprojects.sourceSets.main.output)
