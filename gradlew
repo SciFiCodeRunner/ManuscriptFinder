@@ -1,4 +1,4 @@
-#!/bin/sh
+RUN ./gradlew clean build -x check -x test#!/bin/sh
 
 #
 # Copyright © 2015-2021 the original authors.

@@ -1,7 +1,7 @@
 pluginManagement {
     repositories {
         mavenLocal()
-       // maven { url "https://artifactory.apps.bancolombia.com/maven-bancolombia" }
+     //   maven { url "https://artifactory.apps.bancolombia.com/maven-bancolombia" }
         gradlePluginPortal()
     }
 }
