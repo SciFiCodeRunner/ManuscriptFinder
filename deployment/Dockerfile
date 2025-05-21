@@ -3,11 +3,11 @@
 FROM gradle:8.7.0-jdk17 AS builder
 
 # Establece el directorio de trabajo dentro del contenedor
-WORKDIR /app
+WORKDIR /mi-proyecto-java
 
 # Copia TODO el contenido del proyecto (incluyendo todos los submódulos, settings.gradle, build.gradle, gradlew, etc.)
 # Asegúrate de que tu .dockerignore NO excluya nada necesario para la compilación.
-COPY . /app/ 
+COPY . /mi-proyecto-java/
 
 # Haz que el wrapper de Gradle sea ejecutable
 RUN chmod +x gradlew
