@@ -1,3 +1,5 @@
+# application.yml
+
 server:
   port: 8082
 
@@ -8,19 +10,19 @@ spring:
     add-properties: false
   h2:
     console:
-      enabled: true
+      enabled: ${H2_CONSOLE_ENABLED:false}
       path: "/h2"
   profiles:
     include: null
 
 adapters:
   r2dbc:
-    host: "localhost"
-    port: 5432
-    database: "postgres"
-    schema: "public"
-    username: "postgres"
-    password: "admin"
+    host: "${DB_HOST:localhost}" # localhost como valor por defecto para local
+    port: "${DB_PORT:5432}"
+    database: "${DB_NAME:postgres}"
+    schema: "${DB_SCHEMA:public}"
+    username: "${DB_USER:postgres}"
+    password: "${DB_PASSWORD:admin}"
 
 management:
   endpoints:
@@ -33,4 +35,4 @@ management:
         enabled: true
 
 cors:
-  allowed-origins: "http://localhost:4200,http://localhost:8080"
+  allowed-origins: "${CORS_ALLOWED_ORIGINS:http://localhost:4200,http://localhost:8080}"
