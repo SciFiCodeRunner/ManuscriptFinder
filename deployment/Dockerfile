@@ -23,7 +23,7 @@ VOLUME /tmp
 RUN echo "== Preparando contenedor de ejecución =="
 
 # Copiamos el JAR generado
-COPY --from=builder /app/app-service/build/libs/*.jar app.jar
+COPY --from=builder /app/app-service/build/libs/app-service-*.jar app.jar
 
 # Verificamos que el JAR esté presente
 RUN echo "== Contenido final del contenedor ==" && ls -la /
@@ -33,3 +33,5 @@ ENV JAVA_OPTS=" -Xshareclasses:name=cacheapp,cacheDir=/cache,nonfatal -XX:+UseCo
 
 # Comando de ejecución
 ENTRYPOINT ["sh", "-c", "echo '== Ejecutando app.jar ==' && java $JAVA_OPTS -jar /app.jar"]
+
+RUN echo "== Archivos en app-service/build/libs ==" && ls -lh app-service/build/libs
