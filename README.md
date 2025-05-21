@@ -6,11 +6,3 @@ En un mundo medieval fantástico, diversas facciones compiten por encontrar arte
 
 Tu misión es desarrollar un sistema que analice antiguos manuscritos y determine si contienen pistas sobre la ubicación de estos artefactos mágicos.
 
----
-
-## Funcionalidad Principal
-
-Se debe implementar una función con la siguiente firma (ejemplo en Java):
-
-```java
-boolean containsArtifactClue(String[] manuscript);
